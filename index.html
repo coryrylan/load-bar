@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>LoadBar.js</title>
+    <link href="Src/loadbar.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="js-loadit"></div>
+
+    <br />
+    <input type="button" value="Save" id="Save-btn" />
+
+
+    <script src="Includes/jQuery.js"></script>
+    <script src="Src/loadbar.js"></script>
+    <script>
+        (function() {
+            'use strict';
+
+            $('#js-loadit').loadbar();
+
+            $("#Save-btn").click(function() {
+                emulateProcesses();
+            });
+
+            // Emulate running processes
+            function emulateProcesses() {
+                $('#js-loadit').loadbar();
+                var completed = 0;
+                var processes = 8;
+                setInterval(function() {
+                    if (completed <= processes) {
+                        var percentage = (completed / processes) * 100;
+                        $('#js-loadit').loadbar('update', percentage);
+                        //$('#js-loadit').loadbar('update', percentage, { fade: true });
+                        completed++;
+                    }
+                }, rand(0, 500));
+            }
+
+            // Helper func
+            function rand(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min
+            }
+        }())
+    </script>
+</body>
+</html>
