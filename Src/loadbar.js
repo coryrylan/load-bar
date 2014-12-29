@@ -1,4 +1,4 @@
-﻿/*
+﻿/*!
  * Load-Bar https://github.com/splintercode/load-bar
  * MIT License
  * Cory Bateman
@@ -33,6 +33,8 @@
                         $elm.find('.loading-bar__inner').css({ left: '-100%' });
                         $elm.find('.loading-bar__inner').attr('aria-valuenow', 0);
                     }, 600);
+                } else {
+                    $elm.show();
                 }
             });
         }

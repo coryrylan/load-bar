@@ -17,7 +17,7 @@
         (function() {
             'use strict';
 
-            $('#js-loadit').loadbar();
+            //$('#js-loadit').loadbar();
 
             $("#Save-btn").click(function() {
                 emulateProcesses();
@@ -31,8 +31,8 @@
                 setInterval(function() {
                     if (completed <= processes) {
                         var percentage = (completed / processes) * 100;
-                        $('#js-loadit').loadbar('update', percentage);
-                        //$('#js-loadit').loadbar('update', percentage, { fade: true });
+                        //$('#js-loadit').loadbar('update', percentage);
+                        $('#js-loadit').loadbar('update', percentage, { fade: true });
                         completed++;
                     }
                 }, rand(0, 500));
